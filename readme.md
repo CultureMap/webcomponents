@@ -4,7 +4,7 @@
 
 Web components used throughout our network of websites.
 
-This library is not intended for non-CultureMap websites, but we hope you'll find it useful as a reference or starter for your own web components. ♥
+This library is not intended for non-CultureMap websites, but we hope you'll find it useful as a reference for your own web components. Feel free to contact us at technical@culturemap.com with any questions. ♥
 
 License: GNU LGPLv3
 
