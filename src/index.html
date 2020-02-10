@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>Stencil Component Starter</title>
+
+  <script type="module" src="/build/webcomponents.esm.js"></script>
+  <script nomodule src="/build/webcomponents.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous"/>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha256-kksNxjDRxd/5+jGurZUJd1sdR2v+ClrCl3svESBaJqw=" crossorigin="anonymous"/>
+  <style>
+    .container {
+      text-align: center;
+    }
+
+    .content {
+      margin: 0 auto;
+      text-align: left;
+      width: 560px;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="container">
+    <div class="content">
+
+      <cm-jwp-showcase data-playlist-url="https://cdn.jwplayer.com/v2/playlists/tAdxlcJX"
+                       data-jwp-key="ZIz/lYCAw7Bi6aslqFcIiudUk/J48G0wH5oh1jUizSoprM1lQAaCtA=="></cm-jwp-showcase>
+
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"
+          integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jwplayer.com/libraries/gEuTplxS.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+          integrity="sha256-pTxD+DSzIwmwhOqTFN+DB+nHjO4iAsbgfyFq5K5bcE0=" crossorigin="anonymous"></script>
+
+  <script>
+    $(document).ready(() => $(".owl-carousel").owlCarousel());
+  </script>
+
+</body>
+</html>
