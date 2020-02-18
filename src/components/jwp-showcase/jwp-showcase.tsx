@@ -1,11 +1,22 @@
-import { Component, Element, State, h } from "@stencil/core";
+import { Component, Element, h } from "@stencil/core";
 
 const ATTR_PLAYLIST_URL = "data-playlist-url";
 const ATTR_JWP_KEY = "data-jwp-key";
 
 /**
- * A JWPlayer playlist player with a "drawer" of scrollable, clickable thumbnails below to select videos from the
- * playlist.
+ * Showcase of videos from a JWPlayer playlist. Contains a video player above and a scrolling "drawer" of video
+ * thumbnails below.
+ *
+ * @remarks
+ *
+ * This is a unique web component because it only renders once. After the first render, the JWP library takes over
+ * rendering for the video player, and the Owl Carousel library takes over rendering for the drawer. Its only
+ * properties are exposed as standard data attributes, because they're only used once for the first render.
+ *
+ * Required data attributes:
+ *
+ * `data-playlist-url`: Full URL to the JW Player playlist.
+ * `data-jwp-key`: The JW Player API key suitable for use in JavaScript and HTML.
  */
 @Component({
   tag: "cm-jwp-showcase",
@@ -17,7 +28,7 @@ export class JwpShowcase {
   @Element() host: HTMLElement;
 
   /** List of videos retrieved from the JWP API. */
-  @State() playlist: Array<any>;
+  playlist: Array<any>;
 
   /** Reference to the video player container. */
   playerEl: HTMLDivElement;
@@ -46,7 +57,6 @@ export class JwpShowcase {
 
     // Create the player
     this.jwPlayer = window["jwplayer"](this.playerEl).setup({
-      autostart: false,  // TODO: remove and let player determine
       key: jwpKey,
       playlist: this.playlist,
       preload: "metadata",

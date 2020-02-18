@@ -23,7 +23,7 @@
     "generate": "stencil generate"
   },
   "devDependencies": {
-    "@stencil/core": "^1.8.4"
+    "@stencil/core": "^1.8.9"
   },
   "repository": {
     "type": "git",
