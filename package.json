@@ -1,6 +1,6 @@
 {
   "name": "@culturemap/webcomponents",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "CultureMap Web Components",
   "author": "CultureMap Developer <technical@culturemap.com>",
   "main": "dist/index.js",
