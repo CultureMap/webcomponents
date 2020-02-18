@@ -1,4 +1,4 @@
-# cm-jwp-showcase
+# jwp-showcase
 
 
 

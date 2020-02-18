@@ -3,21 +3,35 @@ import { Component, Element, State, h } from "@stencil/core";
 const ATTR_PLAYLIST_URL = "data-playlist-url";
 const ATTR_JWP_KEY = "data-jwp-key";
 
+/**
+ * A JWPlayer playlist player with a "drawer" of scrollable, clickable thumbnails below to select videos from the
+ * playlist.
+ */
 @Component({
   tag: "cm-jwp-showcase",
   shadow: false
 })
-export class CmJwpShowcase {
+export class JwpShowcase {
 
+  /** Reference to the host element. */
   @Element() host: HTMLElement;
+
+  /** List of videos retrieved from the JWP API. */
   @State() playlist: Array<any>;
 
+  /** Reference to the video player container. */
   playerEl: HTMLDivElement;
+
+  /** Reference to the carousel container. */
   drawerEl: HTMLDivElement;
 
+  /** JWP object returned from jwplayer().setup(). */
   jwPlayer: any;
+
+  /** Owl Carousel object returned from $().owlCarousel(). */
   owlCarousel: any;
 
+  /** Fetches the playlist from the JWP API before rendering. */
   componentWillLoad() {
     const playlistUrl = this.host.getAttribute(ATTR_PLAYLIST_URL);
 
@@ -26,6 +40,7 @@ export class CmJwpShowcase {
       .then(({ playlist }) => this.playlist = playlist);
   }
 
+  /** Creates the JW video player and the Owl Carousel after the first render. */
   componentDidLoad() {
     const jwpKey = this.host.getAttribute(ATTR_JWP_KEY);
 
@@ -48,6 +63,18 @@ export class CmJwpShowcase {
     });
   }
 
+  /** Removes the JW video player and Owl Carousel when the host element gets disconnected. */
+  disconnectedCallback() {
+    this.jwPlayer && this.jwPlayer.remove();
+    this.owlCarousel && this.owlCarousel("destroy");
+  }
+
+  /* Move the JW video player to another video in the playlist. */
+  selectVideo(index) {
+    this.jwPlayer.playlistItem(index);
+  }
+
+  /** Renders the element prior to the JW video player and Owl Carousel taking over rendering. */
   render() {
 
     // Construct the thumbnails if they're ready
@@ -74,14 +101,5 @@ export class CmJwpShowcase {
           {thumbnails}
         </div>
       </div>];
-  }
-
-  selectVideo(index) {
-    this.jwPlayer.playlistItem(index);
-  }
-
-  disconnectedCallback() {
-    this.jwPlayer && this.jwPlayer.remove();
-    this.owlCarousel && this.owlCarousel("destroy");
   }
 }
