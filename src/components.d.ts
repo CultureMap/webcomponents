@@ -11,6 +11,7 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 export namespace Components {
   interface CmJwpShowcase {}
+  interface CmTournament {}
 }
 
 declare global {
@@ -21,16 +22,25 @@ declare global {
     prototype: HTMLCmJwpShowcaseElement;
     new (): HTMLCmJwpShowcaseElement;
   };
+
+  interface HTMLCmTournamentElement extends Components.CmTournament, HTMLStencilElement {}
+  var HTMLCmTournamentElement: {
+    prototype: HTMLCmTournamentElement;
+    new (): HTMLCmTournamentElement;
+  };
   interface HTMLElementTagNameMap {
     'cm-jwp-showcase': HTMLCmJwpShowcaseElement;
+    'cm-tournament': HTMLCmTournamentElement;
   }
 }
 
 declare namespace LocalJSX {
   interface CmJwpShowcase {}
+  interface CmTournament {}
 
   interface IntrinsicElements {
     'cm-jwp-showcase': CmJwpShowcase;
+    'cm-tournament': CmTournament;
   }
 }
 
@@ -41,6 +51,7 @@ declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
       'cm-jwp-showcase': LocalJSX.CmJwpShowcase & JSXBase.HTMLAttributes<HTMLCmJwpShowcaseElement>;
+      'cm-tournament': LocalJSX.CmTournament & JSXBase.HTMLAttributes<HTMLCmTournamentElement>;
     }
   }
 }

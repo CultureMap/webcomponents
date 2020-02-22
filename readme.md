@@ -8,3 +8,14 @@ This library is not intended for non-CultureMap websites, but we hope you'll fin
 
 License: GNU LGPLv3
 
+## Deployment
+
+To deploy a new version of the library:
+
+```
+npm version [major|minor|patch]
+git push
+npm publish
+```
+
+The working directory must be clean before running these commands.

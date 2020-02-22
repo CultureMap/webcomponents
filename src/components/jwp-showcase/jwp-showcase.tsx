@@ -17,6 +17,8 @@ const ATTR_JWP_KEY = "data-jwp-key";
  *
  * `data-playlist-url`: Full URL to the JW Player playlist.
  * `data-jwp-key`: The JW Player API key suitable for use in JavaScript and HTML.
+ *
+ * Required external dependencies: JW Player API for your chose player, Owl Carousel 2.x
  */
 @Component({
   tag: "cm-jwp-showcase",
